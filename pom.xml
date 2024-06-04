@@ -14,18 +14,6 @@
 	<packaging>war</packaging>
 	<name>BankingProjectJPA</name>
 	<description>Rest App</description>
-	<properties>
-		<java.version>17</java.version>
-		<!-- SonarQube server URL -->
-		<sonar.host.url>http://localhost:3000</sonar.host.url>
-		<!-- SonarQube project key -->
-		<sonar.projectKey>JPA</sonar.projectKey>
-		<!-- SonarQube project name -->
-		<sonar.projectName>JPA</sonar.projectName>
-		<!-- SonarQube project version -->
-		<sonar.projectVersion>1.0</sonar.projectVersion>
-		<sonar.login>sqp_5ecb877cb60e6e854282216d1be05aa4de35e566</sonar.login>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
