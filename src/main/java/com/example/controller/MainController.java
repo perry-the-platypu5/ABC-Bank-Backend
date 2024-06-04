@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.models.Customer;
 import com.example.models.Customers;
 import com.example.repo.CustomerRepository;
+import com.example.service.CustomerService;
 
 @RestController
 @RequestMapping("/customer")
@@ -24,41 +25,35 @@ public class MainController {
 	@Autowired
 	CustomerRepository cr;
 	
+	@Autowired
+	CustomerService cs;
+	
 	@GetMapping("/getall")
 	public Customers getAll() {
-		Customers cs = new Customers(cr.findAll());
-		return cs;
+		return cs.getAll();
 	}
 	
 	@PostMapping("/add")
 	public void add(@RequestBody Customer c) {
-		cr.save(c);
+		cs.add(c);
 	}
 	
     @CrossOrigin("http://localhost:8888")
 	@GetMapping("/getone/{id}")
 	public Customer getone(@PathVariable int id) {
-		Customer c = cr.findById(id).get();
-		return c;
+		return cs.getone(id);
 	}
     
     @CrossOrigin("http://localhost:8888")
 	@PutMapping("/update/{id}")
 	public Customer update(@PathVariable int id, @RequestBody Customer cnew) {
-		Customer c = cr.findById(id).get();
-		c.setAddress(cnew.getAddress());
-		c.setAge(cnew.getAge());
-		c.setUserName(cnew.getUserName());
-		c.setEmail(cnew.getEmail());
-		c.setPhoneNo(cnew.getPhoneNo());
-		cr.save(c);
-		return c;
+		return cs.update(id, cnew);
 	}
-    
+   
     @CrossOrigin("http://localhost:8888")
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable int id) {
-		cr.deleteById(id);
+		cs.delete(id);
 	}
     
 //    @CrossOrigin("http://localhost:8888")
@@ -75,5 +70,7 @@ public class MainController {
 		}
 		return null;
 	}
+	
+	
 
 }
