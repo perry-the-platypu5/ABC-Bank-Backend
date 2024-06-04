@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BankingProjectJpaApplication {
 
 	public static void main(String[] args) {
-//		String password=null;
+		String password=null;
 //		try {
 //			password = new Scanner(new File("C:\\JAVA_Workspace\\JDBCApp\\pass.txt")).nextLine();
 //		} catch (FileNotFoundException e) {
